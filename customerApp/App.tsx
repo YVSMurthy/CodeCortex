@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Dashboard from "./components/Dashboard";
 import Checkout from "./components/Checkout";
-import Profile from "./components//Subcomponents/Profile";
+import Profile from "./components/Subcomponents/Profile";
 import OrderHistory from "./components/Subcomponents/OrderHistory"; 
 import QRGenerator from "./components/QRGenerator";
 

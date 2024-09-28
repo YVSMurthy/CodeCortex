@@ -9,7 +9,7 @@ export default function App() {
   const [status, setStatus] = useState<boolean>(false);
   const statusRef = useRef(status);
   const [supported, setSupported] = useState<boolean>(true);
-  const [cart, setCart] = useState<{product_id: String}[]>([{product_id: "T0L9nQ5bXlyw+Cqh/x4HgihkWlUDeNyCun8DazZDWO/q"}]);
+  const [cart, setCart] = useState<{product_id: String}[]>([{product_id: "1"}, {product_id: "2"}]);
   const cartRef = useRef(cart);
   const [messages, setMessages] = useState<string[]>([]);
   const [client, setClient] = useState<TcpSocket.Socket | null>(null);
@@ -127,26 +127,26 @@ export default function App() {
     }
   }
 
-  async function writeNFC() {
-    try {
-      await NfcManager.requestTechnology(NfcTech.Ndef);
+  // async function writeNFC() {
+  //   try {
+  //     await NfcManager.requestTechnology(NfcTech.Ndef);
 
-      // Create NDEF message using Ndef helper
-      const ndefMessage = [
-        Ndef.textRecord(JSON.stringify({ "product_id": "T0L9nQ5bXlyw+Cqh/x4HgihkWlUDeNyCun8DazZDWO/q" }))
-      ];
+  //     // Create NDEF message using Ndef helper
+  //     const ndefMessage = [
+  //       Ndef.textRecord(JSON.stringify({ "product_id": "4" }))
+  //     ];
 
-      const bytes = Ndef.encodeMessage(ndefMessage);
+  //     const bytes = Ndef.encodeMessage(ndefMessage);
 
-      await NfcManager.ndefHandler.writeNdefMessage(bytes);
-      console.log('NDEF message written successfully!');
-    } catch (ex: any) {
-      console.warn('Error writing NDEF message:', ex);
-      console.log('Error writing NDEF message', ex.message);
-    } finally {
-      await NfcManager.cancelTechnologyRequest();
-    }
-  }
+  //     await NfcManager.ndefHandler.writeNdefMessage(bytes);
+  //     console.log('NDEF message written successfully!');
+  //   } catch (ex: any) {
+  //     console.warn('Error writing NDEF message:', ex);
+  //     console.log('Error writing NDEF message', ex.message);
+  //   } finally {
+  //     await NfcManager.cancelTechnologyRequest();
+  //   }
+  // }
 
   return (
     <SafeAreaView style={tw`w-full h-full bg-[#F1F3F5]`}>

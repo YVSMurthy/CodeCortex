@@ -4562,6 +4562,11 @@ react-is@^16.13.1:
 react-is@^17.0.1:
   version "17.0.2"
 
+react-native-network-info@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.npmjs.org/react-native-network-info/-/react-native-network-info-5.2.1.tgz"
+  integrity sha512-iam74xXtrSqqZurCl1/bSjZ9jXcsJY84g7brx1/4uVGCY26c6m+4CArHNSHOsz5ATg2NQT+81sjNy0KlCPyK4g==
+
 react-native-nfc-manager@^3.16.0:
   version "3.16.0"
   resolved "https://registry.npmjs.org/react-native-nfc-manager/-/react-native-nfc-manager-3.16.0.tgz"
@@ -4582,7 +4587,7 @@ react-native-tcp-socket@^6.2.0:
     buffer "^5.4.3"
     eventemitter3 "^4.0.7"
 
-react-native@*, react-native@>=0.60.0, react-native@>=0.62.2, react-native@>=0.8.0, react-native@0.75.3:
+react-native@*, react-native@>=0.47, react-native@>=0.60.0, react-native@>=0.62.2, react-native@>=0.8.0, react-native@0.75.3:
   version "0.75.3"
   dependencies:
     "@jest/create-cache-key-function" "^29.6.3"
