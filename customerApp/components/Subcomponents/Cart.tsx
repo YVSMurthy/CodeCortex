@@ -159,6 +159,31 @@ export default function Cart({ navigation }: any) {
     navigation.navigate("checkout", { cart, totalAmount });
   };
 
+  // Clear the cart when navigating from QR generator
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      setCart([]); // Empty the cart
+      setOriginalCart([]); // Empty the original cart
+      statusRef.current = false; // Ensure NFC scanner status is reset
+
+      // Restart NFC scanner
+      const restartScanner = async () => {
+        if (!statusRef.current) {
+          try {
+            await NfcManager.registerTagEvent();
+            statusRef.current = true;
+          } catch (error) {
+            console.log("Failed to restart NFC scanner", error);
+          }
+        }
+      };
+
+      restartScanner();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
   return (
     <SafeAreaView style={tw`w-full h-full bg-[#F1F3F5] flex p-5 relative`}>
       <View style={tw`flex flex-row items-center justify-between mb-6`}>
