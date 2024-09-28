@@ -1,12 +1,45 @@
 import { View, SafeAreaView, Text } from "react-native";
 import tw from 'twrnc';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Dashboard from "./components/Dashboard";
+import Checkout from "./components/Checkout";
+import Profile from "./components//Subcomponents/Profile";
+import OrderHistory from "./components/Subcomponents/OrderHistory"; 
+import QRGenerator from "./components/QRGenerator";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView style={tw`w-full h-full bg-[#F1F3F5] flex items-center justify-center`}>
-      <View>
-        <Text style={tw`text-2xl font-bold`}>This is an React-Native app</Text>
-      </View>
-    </SafeAreaView>
-  )
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="dashboard">
+        <Stack.Screen 
+          name="dashboard" 
+          component={Dashboard} 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="checkout" 
+          component={Checkout} 
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="profile" 
+          component={Profile} 
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="orderHistory" 
+          component={OrderHistory} 
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen 
+          name="qrGenerator"
+          component={QRGenerator} 
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }

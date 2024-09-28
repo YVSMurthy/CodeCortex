@@ -3,7 +3,7 @@ apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
 project.ext.vectoricons = [
-    iconFontNames: ['MaterialCommunityIcons.ttf', 'MaterialIcons.ttf', 'Ionicons.ttf'] 
+    iconFontNames: [ 'MaterialCommunityIcons.ttf', 'MaterialIcons.ttf', 'Ionicons.ttf' ]
 ]
 
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
@@ -116,6 +116,7 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+    implementation project(':react-native-svg')
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
